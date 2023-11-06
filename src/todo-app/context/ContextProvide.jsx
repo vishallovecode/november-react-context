@@ -1,19 +1,26 @@
-import { useReducer } from "react"
+import { createContext, useReducer } from "react"
+import TodoAppReducer from "./reducer";
 
 
 const initialState = {
-    item: []
+    items: []
 }
+
+export const Context =  createContext();
 export const ContextProvider =  (props)=> {
 
-    const [state , dispatch] = useReducer(reducer , initialState) //  reducer=> it a pure is function 
+    const [state , dispatch] = useReducer(TodoAppReducer , initialState) //  reducer=> it a pure is function 
+
+
+    const data  =  {state, dispatch};
+return  (
+    <Context.Provider value = {data}>
+        {props.children}
+    </Context.Provider>
+)
 }
 
-return  (
-    <ContextProvider.Provider>
-        {props.children}
-    </ContextProvider.Provider>
-)
+
 
 // context  (we have to manakge complex state) 
 // like some of compoennt we need to hanlde multiple state at a time there

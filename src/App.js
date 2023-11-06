@@ -2,10 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 import { createContext, useState } from 'react';
 import Parent from './Parent';
+import { ContextProvider } from './todo-app/context/ContextProvide';
 import TodoApp from './todo-app';
 
-export const ThemeContext =  createContext();
 
+
+
+
+export const  ThemeContext = createContext()
 
 
 function App() {
@@ -19,9 +23,9 @@ function App() {
  
 
   return (
-    <ThemeContext.Provider     >
-      <TodoApp/>
-    </ThemeContext.Provider>
+  <ContextProvider>
+    <TodoApp/>
+  </ContextProvider>
   );
 }
 
