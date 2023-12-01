@@ -4,6 +4,8 @@ import { createContext, useState } from 'react';
 import Parent from './Parent';
 import { ContextProvider } from './todo-app/context/ContextProvide';
 import TodoApp from './todo-app';
+import PopUp from './portal';
+import ApiCallExample from './apicall';
 
 
 
@@ -23,9 +25,11 @@ function App() {
  
 
   return (
-  <ContextProvider>
-    <TodoApp/>
-  </ContextProvider>
+  // <ContextProvider>
+  //   <TodoApp/>
+  //   <PopUp/>
+  // </ContextProvider>
+  <ApiCallExample/>
   );
 }
 
