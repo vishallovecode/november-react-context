@@ -6,16 +6,19 @@ import { ContextProvider } from './todo-app/context/ContextProvide';
 import TodoApp from './todo-app';
 import PopUp from './portal';
 import ApiCallExample from './apicall';
+import GParent from './context/GrandParent';
 
 
 
 
 
+export const AppContext  = createContext(undefined);
 export const  ThemeContext = createContext()
 
 
 function App() {
   const [theme , setTheme] = useState('dark');
+  const [value , setValue] = useState({batch: 'All January November and December'})
 
  
 // const state  = {
@@ -26,10 +29,12 @@ function App() {
 
   return (
   // <ContextProvider>
-  //   <TodoApp/>
-  //   <PopUp/>
+
+  
   // </ContextProvider>
-  <ApiCallExample/>
+  <AppContext.Provider value = {value}>
+     <GParent/>
+  </AppContext.Provider>
   );
 }
 
